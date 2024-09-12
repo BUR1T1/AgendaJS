@@ -1,24 +1,25 @@
-const Filter = () => {
+const Filter = ({ filter, setFilter, setSort }) => {
     return (
-        <div className="filter">
-            <h2>filtrar:</h2>
-            <div className="filter-options">
-                <div>
-                    <p>Status:</p>
-                    <select>
-                        <option value="All">todas</option>
-                        <option value="Completed">Completas</option>
-                        <option value="Incompletas">Incompletas</option>
-                    </select>
-                </div>
-                <div>
-                    <p>Ordem alfabetica</p>
-                    <button>Asc</button>
-                    <button>Desc</button>
-                </div>
-            </div>
+      <div className="filter">
+        <h2>Filtrar:</h2>
+        <div className="filter-options">
+          <div>
+            <p>Status:</p>
+            <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+              <option value="All">Todas</option>
+              <option value="Completed">Completas</option>
+              <option value="Incompletas">Incompletas</option>
+            </select>
+          </div>
+          <div>
+            <p>Ordem alfabética:</p>
+            <button onClick={() => setSort("Asc")}>Asc</button>
+            <button onClick={() => setSort("Desc")}>Desc</button>
+          </div>
         </div>
+      </div>
     );
-};
-
-export default Filter;
+  };
+  
+  export default Filter;
+  
